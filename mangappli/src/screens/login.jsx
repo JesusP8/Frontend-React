@@ -21,7 +21,7 @@ export default function LoginScreen({ navigation }) {
       return alert("Missing fields");
     }
     axios
-      .post("", {
+      .post("https://backendcomic-aj.herokuapp.com/login", {
         username: user.toLowerCase(),
         password: pass,
       })
