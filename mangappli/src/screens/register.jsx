@@ -5,9 +5,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
 export default function RegisterScreen({ navigation }) {
-  const [user, setUser] = useState("");
-  const [pass, setPass] = useState("");
-  const [name, setName] = useState("");
+  const [username, setUser] = useState("");
+  const [clave, setPass] = useState("");
+  const [nombre, setName] = useState("");
+  const [correo, setCorreo] = useState("");
   const [status, setStatus] = useState("");
 
   const skip = async () => {
@@ -17,15 +18,16 @@ export default function RegisterScreen({ navigation }) {
 
   const register = async () => {
     try {
-      if (user == "" || pass == "" || name == "") {
+      if (username == "" || clave == "" || nombre == ""|| correo == "") {
         return alert("Missing fields");
       }
       var res = await axios.post(
-        "",
+        "https://backendcomic-aj.herokuapp.com/register",
         {
-          name: name,
-          username: user.toLowerCase(),
-          password: pass,
+          nombre: nombre,
+          username: username.toLowerCase(),
+          clave: clave,
+          correo: correo,
         }
       );
 
@@ -74,6 +76,13 @@ export default function RegisterScreen({ navigation }) {
           style={globalStyles.input}
           onChangeText={(newText) => setPass(newText)}
           placeholder={"Password"}
+        ></TextInput>
+
+<TextInput
+          secureTextEntry={true}
+          style={globalStyles.input}
+          onChangeText={(newText) => setCorreo(newText)}
+          placeholder={"Correo"}
         ></TextInput>
       </View>
       <View
