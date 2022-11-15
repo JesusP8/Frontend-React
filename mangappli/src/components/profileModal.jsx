@@ -21,7 +21,7 @@ export default function ProfileModal(props) {
     }
     console.log(props.user);
     axios
-      .put(``, {
+      .put(`https://backendcomic-aj.herokuapp.com/modify/:id`, {
         username: newUser.toLowerCase(),
         password: newPass,
       })

@@ -5,7 +5,7 @@ import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function LoginScreen({ navigation }) {
-  const [username, setUser] = useState("");
+  const [user, setUser] = useState("");
   const [password, setPass] = useState("");
   const [key, setKey] = useState("");
   const [value, onChangeValue] = useState("");
@@ -17,12 +17,12 @@ export default function LoginScreen({ navigation }) {
   };
 
   const login = async () => {
-    if (username == "" || password == "") {
+    if (user == "" || password == "") {
       return alert("Missing fields");
     }
     axios
       .post("https://backendcomic-aj.herokuapp.com/login", {
-        username: username.toLowerCase(),
+        username: user.toLowerCase(),
         password: password,
       })
       .then(async (response) => {

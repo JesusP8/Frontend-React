@@ -25,7 +25,7 @@ export default function Navigator() {
     const checkUser = async () => {
       try {
         const stored = await AsyncStorage.getItem("user");
-        console.log("working useEffect");
+        console.log("Conexion");
         setUser(stored);
         console.log(user);
         //await AsyncStorage.setItem("accessToken", data.accessToken);

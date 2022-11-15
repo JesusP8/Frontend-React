@@ -18,7 +18,7 @@ export default function ModalTester(props) {
 
     console.log(result);
 
-    if (!result.cancelled) {
+    if (!result) {
       setCover(result.uri);
 
       console.log(cover);
